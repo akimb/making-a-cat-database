@@ -1,0 +1,42 @@
+<h1 class="title">Andy's Cat Database</h1>
+
+<div class="body-overlay">
+    <div class="container">
+
+        <div class="link">
+            <%= link_to "About Us", nil %>
+            <%= link_to "Contact Us", nil %>
+            <%= link_to "Careers", nil %>
+            <%= link_to "Add New Cat", new_create_cat_path %>
+            <%= link_to "Staff Login", staff_credentials_create_cat_index_path %>
+        </div>
+        <br>
+        <hr>
+        
+        <div class="scrollable-container">
+            <% @cat.each do |cat|%>
+                <div class="cat-credentials">
+                    <h2><%= cat.name%></h2>
+                    <% if cat.image.attached? %>
+                    <%= image_tag cat.image, width: 300 %>
+                    <% end %>
+                    <p><strong>Sex: </strong><%= cat.sex %></p>
+                    <p><strong>Description: </strong><%= cat.description %></p>
+                    <p><strong>Adoption Status: </strong><%= adoption_status(cat) %></p>
+                    <%= link_to "View Details About #{cat.name}", create_cat_path(cat)%>
+                    <br><br>
+                    <%= button_to "Delete Cat", create_cat_path(cat.id), method: :delete %>
+                    <%= button_to "Edit Cat", edit_create_cat_path(cat.id), method: :get %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <br>
+
+    <div class="heading">
+        <h2>Check out Andy's Personal Website!<h2>
+        <iframe src="https://andy-kim2000.dev/" width="800" height="250" title="Andy's Personal Website!">
+            <p>Looks like Andy's website is down at the moment. Please contact him to fix this!</p>
+        </iframe>
+    </div>
+</div>

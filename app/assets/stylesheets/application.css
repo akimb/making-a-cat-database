@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+ @font-face {
+    font-family: 'Blue Winter';
+    src: url("/BlueWinter/BlueWinter.ttf") format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Caviar Dreams Bold';
+    src: url("/CaviarDreams/CaviarDreams_Bold.ttf");
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url("/CaviarDreams/CaviarDreams.ttf");
+}
+
+.body {
+    background-image: url("/catbackgroundfinal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.body-overlay {
+    height: fit-content;
+    width: 900px;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+ }
+
+ .title {
+    font-family:'Blue Winter';
+    font-size: 100px;
+    text-align: center;
+    color: #7EE3FF;
+    text-shadow: -2px -2px 0 #3A7FE2, 2px -2px 0 #3A7FE2, -2px 2px 0 #3A7FE2, 2px 2px 0 #3A7FE2;
+}
+
+ .heading {
+    font-family:'Blue Winter';
+    font-size: 45px;
+    text-align: center;
+    color: #7EE3FF;
+    text-shadow: -2px -2px 0 #3A7FE2, 2px -2px 0 #3A7FE2, -2px 2px 0 #3A7FE2, 2px 2px 0 #3A7FE2;
+}
+
+.link {
+    font-family: 'Caviar Dreams Bold';
+    font-size: 16px;
+}
+
+.cat-credentials {
+    font-family: 'Caviar Dreams';
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.scrollable-container {
+  height: 600px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+}

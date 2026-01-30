@@ -1,0 +1,27 @@
+
+<h1><%= @cat.name %>'s Details</h1>
+
+<%= form_with model: @cat, url: create_cat_index_path do |form|%>
+    <div>
+        <%= form.label :name, "Name: "%>
+        <%= @cat.name %>
+    </div>
+    <div>
+        <%= form.label :sex, "Sex: "%>
+        <%= @cat.sex %>
+    </div>
+    <div>
+        <%= form.label :description, "Description: "%>
+        <%= @cat.description %>
+    </div>
+    <div>
+        <%= form.label :adoption_status, "Adoption Status: "%>
+        <%= @cat.adopted ? "Found a home!" : "Looking for a home!"%>
+    </div>
+    <div>
+        <%= form.label :microchip_number, "Microchip Number: "%>
+        <%= @cat.microchip_number ? @cat.microchip_number : "Microchip not found."%>
+    </div>
+<% end %>
+
+<%= link_to "Back to Cat Database", create_cat_index_path %>
