@@ -1,4 +1,6 @@
 class CreateCatController < ApplicationController
+
+  before_action :require_authentication, except: [:index, :show]
   def index
     @cat = CreateCat.all
   end

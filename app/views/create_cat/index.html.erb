@@ -1,5 +1,10 @@
 <h1 class="title">Andy's Cat Database</h1>
 
+<div>
+    <p>DEBUG: Authenticated = <%= authenticated? %></p>
+    <p>DEBUG: Current Session = <%= Current.session.inspect %></p>
+</div>
+
 <div class="body-overlay">
     <div class="container">
 
@@ -7,8 +12,13 @@
             <%= link_to "About Us", nil %>
             <%= link_to "Contact Us", nil %>
             <%= link_to "Careers", nil %>
-            <%= link_to "Add New Cat", new_create_cat_path %>
-            <%= link_to "Staff Login", staff_credentials_create_cat_index_path %>
+            <% if authenticated? %>
+                <%= link_to "Add New Cat", new_create_cat_path %>
+                <%= link_to "Log Out", session_path, data: { turbo_method: :delete } %>
+            <% else %>
+                <%= link_to "Staff Login", new_session_path %>
+            <% end %>
+            
         </div>
         <br>
         <hr>
@@ -25,8 +35,10 @@
                     <p><strong>Adoption Status: </strong><%= adoption_status(cat) %></p>
                     <%= link_to "View Details About #{cat.name}", create_cat_path(cat)%>
                     <br><br>
-                    <%= button_to "Delete Cat", create_cat_path(cat.id), method: :delete %>
-                    <%= button_to "Edit Cat", edit_create_cat_path(cat.id), method: :get %>
+                    <% if authenticated? %>
+                        <%= button_to "Delete Cat", create_cat_path(cat.id), method: :delete %>
+                        <%= button_to "Edit Cat", edit_create_cat_path(cat.id), method: :get %>
+                    <% end %>
                 </div>
             <% end %>
         </div>
