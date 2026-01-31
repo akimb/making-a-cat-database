@@ -1,9 +1,5 @@
 <h1 class="title">Andy's Cat Database</h1>
 
-<div>
-    <p>DEBUG: Authenticated = <%= authenticated? %></p>
-    <p>DEBUG: Current Session = <%= Current.session.inspect %></p>
-</div>
 
 <div class="body-overlay">
     <div class="container">
@@ -25,7 +21,7 @@
         
         <div class="scrollable-container">
             <% @cat.each do |cat|%>
-                <div class="cat-credentials">
+                <div class="default-font">
                     <h2><%= cat.name%></h2>
                     <% if cat.image.attached? %>
                     <%= image_tag cat.image, width: 300 %>
