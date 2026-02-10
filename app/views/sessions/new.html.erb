@@ -8,14 +8,14 @@
 
       <%= form_with url: session_path do |form| %>
         <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-        <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
+        <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 20 %><br>
         <br>
         <%= form.submit "Sign in" %>
       <% end %>
       <br>
 
       <%= link_to "Forgot Password?", new_password_path %>
-      <%= link_to "New User"%>
+      <%= link_to "New User", sign_up_path %>
     </div>
   </div>
 </div>
