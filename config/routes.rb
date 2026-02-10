@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resource :session
   resource :sign_up
+  resource :about_us, controller: 'about_us'
 
   resources :passwords, param: :token
   resources :create_cat
