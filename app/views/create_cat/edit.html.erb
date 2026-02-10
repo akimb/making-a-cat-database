@@ -1,43 +1,47 @@
-<h1> Edit Cat </h1>
+<div class="body-overlay">
+    <div class="container">
+        <h1> Edit Cat </h1>
 
-<%= form_with model: @cat, url: create_cat_path do |form| %>
-    <div>
-        <% if @cat.image.attached? %>
-        <%= image_tag @cat.image, width: 300 %>
-        <% else %>
-        <%= form.label :image, "Cat Photo" %>
-        <%= form.file_field :image, accept: "image/*" %>
+        <%= form_with model: @cat, url: create_cat_path do |form| %>
+            <div>
+                <% if @cat.image.attached? %>
+                <%= image_tag @cat.image, width: 300 %>
+                <% else %>
+                <%= form.label :image, "Cat Photo" %>
+                <%= form.file_field :image, accept: "image/*" %>
+                <% end %>
+            </div>
+            <div>
+                <%= form.label :name %>
+                <%= form.text_field :name %>
+            </div>
+
+            <div>
+                <%= form.label :sex %>
+                <%= form.select :sex, ["Male", "Female"] %>
+            </div>
+
+            <div>
+                <%= form.label :description %>
+                <%= form.text_area :description %>
+            </div>
+
+            <div>
+                <%= form.label :adopted, "Adoption Status: " %>
+                <%= form.check_box :adopted %>
+            </div>
+
+            <div>
+                <%= form.label :microchip_number, "Microchip Number: " %>
+                <%= form.text_field :microchip_number %>
+            </div>
+
+            <br>
+
+            <%= form.submit "Save Changes" %>
         <% end %>
+
+        <br>
+        <%= link_to "Back to Cat Database", create_cat_index_path %>
     </div>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </div>
-
-    <div>
-        <%= form.label :sex %>
-        <%= form.select :sex, ["Male", "Female"] %>
-    </div>
-
-    <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-    </div>
-
-    <div>
-        <%= form.label :adopted, "Adoption Status: " %>
-        <%= form.check_box :adopted %>
-    </div>
-
-    <div>
-        <%= form.label :microchip_number, "Microchip Number: " %>
-        <%= form.text_field :microchip_number %>
-    </div>
-
-    <br>
-
-    <%= form.submit "Save Changes" %>
-<% end %>
-
-<br>
-<%= link_to "Back to Cat Database", create_cat_index_path %>
+</div>
