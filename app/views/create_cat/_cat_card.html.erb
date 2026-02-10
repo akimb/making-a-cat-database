@@ -1,0 +1,20 @@
+<div class="default-font">
+    <h2><%= cat.name %></h2>
+
+    <% if cat.image.attached? %>
+        <%= image_tag cat.image, width: 300 %>
+    <% end %>
+
+    <p><strong>Sex: </strong><%= cat.sex %></p>
+    <p><strong>Description: </strong><%= cat.description %></p>
+    <p><strong>Adoption Status: </strong><%= adoption_status(cat) %></p>
+
+    <%= link_to "View Details About #{cat.name}", create_cat_path(cat)%>
+
+    <br><br>
+
+    <% if authenticated? %>
+        <%= button_to "Delete Cat", create_cat_path(cat.id), method: :delete %>
+        <%= button_to "Edit Cat", edit_create_cat_path(cat.id), method: :get %>
+    <% end %>
+</div>

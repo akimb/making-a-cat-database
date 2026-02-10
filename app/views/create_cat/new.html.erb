@@ -1,38 +1,43 @@
-<h1> Add New Cat </h1>
 
-<%= form_with model: @cat, url: create_cat_index_path do |form| %>
-    <div>
-        <%= form.label :image, "Cat Photo" %>
-        <%= form.file_field :image, accept: "image/*" %>
+<div class="body-overlay">
+    <div class="container">
+        <h1> Add New Cat </h1>
+
+        <%= form_with model: @cat, url: create_cat_index_path do |form| %>
+            <div>
+                <%= form.label :image, "Cat Photo" %>
+                <%= form.file_field :image, accept: "image/*" %>
+            </div>
+
+            <div>
+                <%= form.label :name %>
+                <%= form.text_field :name %>
+            </div>
+
+            <div>
+                <%= form.label :sex %>
+                <%= form.select :sex, options_for_select(["Male", "Female"]) %>
+            </div>
+
+            <div>
+                <%= form.label :description %>
+                <%= form.text_area :description %>
+            </div>
+
+            <div>
+                <%= form.label :adopted, "Adoption Status:" %>
+                <%= form.check_box :adopted %>
+            </div>
+
+            <div>
+                <%= form.label :microchip_number, "Microchip Number:" %>
+                <%= form.text_field :microchip_number %>
+            </div>
+
+            <%= form.submit "Add Cat" %>
+        <% end %>
+
+        <br>
+        <%= link_to "Back to Cat Database", create_cat_index_path %>
     </div>
-
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </div>
-
-    <div>
-        <%= form.label :sex %>
-        <%= form.select :sex, options_for_select(["Male", "Female"]) %>
-    </div>
-
-    <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-    </div>
-
-    <div>
-        <%= form.label :adopted, "Adoption Status:" %>
-        <%= form.check_box :adopted %>
-    </div>
-
-    <div>
-        <%= form.label :microchip_number, "Microchip Number:" %>
-        <%= form.text_field :microchip_number %>
-    </div>
-
-    <%= form.submit "Add Cat" %>
-<% end %>
-
-<br>
-<%= link_to "Back to Cat Database", create_cat_index_path %>
+</div>

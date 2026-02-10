@@ -22,8 +22,8 @@
         
         <div class="scrollable-container">
             <% @cat.each do |cat|%>
-                <div class="default-font">
-                    <h2><%= cat.name%></h2>
+                <%# partials are like functions. create them by placing an underscore before, i.e. _cat_card.html.erb. Ruby will automatically know %>
+                <%= render partial: "cat_card", locals: { cat: cat} %>
                     <% if cat.image.attached? %>
                     <%= image_tag cat.image, width: 300 %>
                     <% end %>
