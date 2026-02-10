@@ -11,6 +11,7 @@
             <% if authenticated? %>
                 <%= link_to "Add New Cat", new_create_cat_path %>
                 <%= link_to "Log Out", session_path, data: { turbo_method: :delete } %>
+                <h2> Welcome, <%= current_user.first_name %> </h2>
             <% else %>
                 <%= link_to "Staff Login", new_session_path %>
             <% end %>
