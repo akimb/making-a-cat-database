@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <style>
+    body {
+      background-image: none !important;
+    }
+    .animated-rainbow-2 {
+        animation-duration: 0.1s;
+    }
+  </style>
+<% end %>
+
+<div class="body-overlay">
+    <div class="container">
+        <div class="animated-rainbow-2">PLEASE GIVE ME A JOB</div>
+
+        <div class="link">
+            <%= link_to "← Back to Homepage", root_path, data: { turbo: false } %>  
+        </div>
+    </div>
+</div>
